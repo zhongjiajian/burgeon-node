@@ -36,6 +36,7 @@ class PageController {
   async updatePage (ctx) {
     await getJWTPayload(ctx.header.authorization)
     const { body } = ctx.request
+    console.log(body.id, body.content)
     const result = await Page.updateOne({ _id: body.id }, { $set: { content: body.content } })
     ctx.body = {
       code: 200,

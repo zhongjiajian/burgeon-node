@@ -6,7 +6,7 @@ const PostSchema = new Schema({
   uid: { type: String, ref: 'users' },
   title: { type: String },
   note: { type: String },
-  content: { type: Array },
+  content: { type: Object },
   isDel: { type: Boolean }
 }, { timestamps: { createdAt: 'created', updatedAt: 'updated' } })
 
