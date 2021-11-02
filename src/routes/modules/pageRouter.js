@@ -14,4 +14,7 @@ router.post('/deletePage', pageController.deletePage)
 // 修改页面
 router.post('/updatePage', pageController.updatePage)
 
+// 发布页面
+router.post('/publishPage', pageController.publishPage)
+
 export default router

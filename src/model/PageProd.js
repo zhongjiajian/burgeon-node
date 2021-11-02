@@ -6,9 +6,8 @@ const PostSchema = new Schema({
   uid: { type: String, ref: 'users' },
   title: { type: String },
   note: { type: String },
-  content: { type: String },
-  isDel: { type: Boolean },
-  prodId: { type: String, ref: 'pagesProd' }
+  content: { type: String }
+//   isDel: { type: Boolean },
 }, { timestamps: { createdAt: 'created', updatedAt: 'updated' } })
 
 // PostSchema.virtual('user', {
@@ -41,6 +40,6 @@ PostSchema.statics = {
 
 }
 
-const PostModel = mongoose.model('pages', PostSchema)
+const PostModel = mongoose.model('pagesProd', PostSchema)
 
 export default PostModel

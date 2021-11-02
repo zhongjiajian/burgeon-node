@@ -1,6 +1,7 @@
 import svgCaptcha from 'svg-captcha'
 import { setValue } from '@/config/RedisConfig'
 import Page from '@/model/Page'
+import PageProd from '@/model/PageProd'
 
 class PublicController {
   // 获取图片验证码
@@ -30,7 +31,7 @@ class PublicController {
     }
   }
 
-  // 获取页面列表
+  // 获取页面列表-stable
   async getPages (ctx) {
     const result = await Page.getList(ctx.request.body, 'created')
 
@@ -41,10 +42,32 @@ class PublicController {
     }
   }
 
-  // 获取页面信息
+  // 获取页面信息-stable
   async getPageInfo (ctx) {
     const { body } = ctx.request
     const result = await Page.findByPid(body.id)
+    ctx.body = {
+      code: 200,
+      data: result,
+      msg: '获取成功'
+    }
+  }
+
+  // 获取页面列表-prod
+  async getProdPages (ctx) {
+    const result = await PageProd.getList(ctx.request.body, 'created')
+
+    ctx.body = {
+      code: 200,
+      data: result,
+      msg: '获取成功'
+    }
+  }
+
+  // 获取页面信息-prod
+  async getProdPageInfo (ctx) {
+    const { body } = ctx.request
+    const result = await PageProd.findByPid(body.id)
     ctx.body = {
       code: 200,
       data: result,
